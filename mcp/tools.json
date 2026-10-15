@@ -1,0 +1,52 @@
+{
+  "generator": "scripts/gen-tools-json.mjs",
+  "package": "dsh-quant-mini",
+  "generatedAt": "2026-10-15T07:18:19.422Z",
+  "toolCount": 2,
+  "note": "Model-visible schemas extracted from ctx.tools.schemas() at runtime — always matches the shipped code.",
+  "tools": [
+    {
+      "name": "demo_rolling_sum",
+      "description": "Sum the last `window` values at each index (rolling sum). Output length equals input length; the first window-1 positions are null. An empty series is a legal result, not an error.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "description": "Number series, oldest first",
+            "items": {
+              "type": "number"
+            }
+          },
+          "window": {
+            "type": "integer",
+            "description": "Window size (>= 1)"
+          }
+        },
+        "required": [
+          "values",
+          "window"
+        ]
+      }
+    },
+    {
+      "name": "demo_series_stats",
+      "description": "Compute count/mean/min/max of a number series. An empty series is legal: count=0 and the statistics are null.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "description": "Number series, oldest first",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "values"
+        ]
+      }
+    }
+  ]
+}

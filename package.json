@@ -1,0 +1,54 @@
+{
+  "name": "dsh-quant-mini",
+  "version": "0.1.0",
+  "description": "🐣 Minimal dsh plugin starter — 2 tools, 3 required exports, one runnable example of the dsh-quant architecture.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "lib",
+    "cli",
+    "skill",
+    "mcp",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "tsx --test tests/rolling.spec.ts",
+    "test": "npm run build && npm run test:unit",
+    "gen:tools": "node scripts/gen-tools-json.mjs",
+    "cli": "node cli/main.mjs"
+  },
+  "bin": {
+    "dsh-quant-mini": "./cli/main.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.0",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.5 || >=0.2.1-alpha.2 <0.3.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.0",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.5 || >=0.2.1-alpha.2 <0.3.0",
+    "@deepseek-ai/dsh-system-prompt": "^0.1.0-rc.5 || >=0.2.1-alpha.2 <0.3.0",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

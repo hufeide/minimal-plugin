@@ -1,0 +1,6 @@
+# 最小插件的 bundle 补丁：往任意 profile 里插入一行。
+# 用户 `dsh plugin add dsh-quant-mini`（或在自己的 cordis.patch.yml 里
+# 覆写/禁用这一行）都通过这个 id 定位。
+- insert:
+    - id: quant-mini
+      name: 'dsh-quant-mini'
